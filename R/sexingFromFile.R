@@ -30,15 +30,15 @@ sexingFromFile <- function(dat, ref, updateProgressBar=NULL) {
 		if ((! variablesInit %in% tabModeles$InitialVars) & (sum(!is.na(dat[i,]))>0)) { # Si ces variables ne correspondent pas à une situation déjà connue/calculée dans le jeu de données,
 			res <- indivSexing(ref=ref, newInd=dat[i,]) # on calcule le modèle correspondant grâce à cette fonction annexe,
 			MatRes[i, "Statistical sex estimate (2018)"] <- res$PredictedSex # et on note les différents résultats.
-			MatRes[i, "Prob(F)"] <- 1-res$PostProb
-			MatRes[i, "Prob(M)"] <- res$PostProb
+			MatRes[i, "Prob(F)"] <- round(1-res$PostProb, 3)
+			MatRes[i, "Prob(M)"] <- round(res$PostProb, 3)
 			MatRes[i, "Selected predictors in LR model"] <- res$VariablesUsed
-			MatRes[i, "10-fold CV accuracy (%)"] <- 100*res$cvRate
-			MatRes[i, "Indet. rate in CV (%)"] <- 100*res$cvIndet
+			MatRes[i, "10-fold CV accuracy (%)"] <- round(100*res$cvRate, 2)
+			MatRes[i, "Indet. rate in CV (%)"] <- round(100*res$cvIndet, 2)
 			listeModeles[[indexModeles]] <- res$BestModel
 			tabModeles[indexModeles, "InitialVars"] <- variablesInit
-			tabModeles[indexModeles, "tenCV_perfRate"] <- 100*res$cvRate
-			tabModeles[indexModeles, "tenCV_indetRate"] <- 100*res$cvIndet
+			tabModeles[indexModeles, "tenCV_perfRate"] <- round(100*res$cvRate, 2)
+			tabModeles[indexModeles, "tenCV_indetRate"] <- round(100*res$cvIndet, 2)
 			#tabModeles[i, "tenCV_perfRate"] <- 
 			indexModeles <- indexModeles + 1 # on incrémente le compteur de modèles
 		} else if (sum(!is.na(dat[i,]))>0) { # Si ces variables correspondent à une situation déjà connue/calculée dans le jeu de données
@@ -46,8 +46,8 @@ sexingFromFile <- function(dat, ref, updateProgressBar=NULL) {
 			currentMod <- listeModeles[[where.mod]] # récupérer le modèle correspondant...
 			postprob <- predict(currentMod, newdata=as.data.frame(dat[i,]), type="response") # et prédire.
 			MatRes[i, "Statistical sex estimate (2018)"] <- ifelse(postprob>=0.95,"M", ifelse(postprob<=0.05,"F","I")) 
-			MatRes[i, "Prob(F)"] <- 1-postprob
-			MatRes[i, "Prob(M)"] <- postprob
+			MatRes[i, "Prob(F)"] <- round(1-postprob, 3)
+			MatRes[i, "Prob(M)"] <- round(postprob, 3)
 			MatRes[i, "Selected predictors in LR model"] <- paste(attr(currentMod$terms, "term.labels"), collapse=", ")
 			MatRes[i, "10-fold CV accuracy (%)"] <- tabModeles[where.mod, "tenCV_perfRate"]
 			MatRes[i, "Indet. rate in CV (%)"] <- tabModeles[where.mod, "tenCV_indetRate"]

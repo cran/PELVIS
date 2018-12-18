@@ -18,7 +18,7 @@ Regardless of the size and resolution of your screen, for convenience, it is adv
 The R-Shiny application proposes two tabs:
 \itemize{
 \item \sQuote{Data input: manual editing} can be used for both data entry and sex classification. The eleven trichotomic traits are manually edited for each os coxae through the GUI, and the corresponding sex estimates are then produced.
-\item \sQuote{Data input: from text file} is the classical way to get the sex estimates for a whole sample of ossa coxa correctly described in a file. PELVIS accepts .CSV or .TXT data files, but does not support .ODS or .XLS(X) files. Please make sure that the headers are correctly defined. An example of data file can be downloaded here: .
+\item \sQuote{Data input: from text file} is the classical way to get the sex estimates for a whole sample of ossa coxa correctly described in a file. PELVIS accepts .CSV or .TXT data files, but does not support .ODS or .XLS(X) files. The predictive factors (i.e. the eleven trichotomic traits) should have the same headers and levels as in the reference dataset \sQuote{refData} included in PELVIS. An example of valid data file can be downloaded here: http://www.pacea.u-bordeaux.fr/IMG/csv/data_test_PELVIS.csv (its field separator is the semicolon ";").
 }
 In both tabs, two sex estimates are given: the visual sex estimate from Bruzek (2002), and the probabilistic sex estimate from Santos, Guyomarc'h, Rmoutilova and Bruzek (2018, submitted). Depending on the traits possibly missing on the ossa coxa submitted to the program, the logistic regression models can use various subsets of best predictors (selected by BIC). The final subset of predictors used for each os coxae is given in the table of results.
 }

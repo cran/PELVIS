@@ -1,13 +1,12 @@
 bibentry(bibtype = "Article",
-	title = "A probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)",
+	title = "Probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)",
 	author = c(person("Frédéric", "Santos"), person("Pierre", "Guyomarc'h"), person("Rebeka", "Rmoutilova"), person("Jaroslav", "Bruzek")),
-	year = "Submitted",
+	year = "2018",
 	volume = "",
 	number = "",
 	pages = "",
 	journal = "American Journal of Physical Anthropology",
 	doi = "",
 	header = "Please cite PELVIS in publications using:",
-	textVersion = "Santos, F., Guyomarc'h, P., Rmoutilova, R., & Bruzek, J. (Submitted to American Journal of Physical Anthropology). Probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)."	
+	textVersion = "Santos, F., Guyomarc'h, P., Rmoutilova, R., & Bruzek, J. (2018). Probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)."	
 )
-

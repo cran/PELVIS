@@ -9,7 +9,7 @@ sexingFromFile(dat, ref, updateProgressBar=NULL)
 This is an internal function for the R-Shiny application implemented in PELVIS.
 }
 \arguments{
-  \item{dat}{A test dataset submitted by the user throught the graphical user interface.}
+  \item{dat}{A test dataset submitted by the user throught the graphical user interface. The predictive factors (i.e. the eleven trichotomic traits) should have the same headers and levels as in the reference dataset \sQuote{refData} included in PELVIS. An example of valid data file can be downloaded here: http://www.pacea.u-bordeaux.fr/IMG/csv/data_test_PELVIS.csv (its field separator is the semicolon ";").}
   \item{ref}{A learning dataset for logistic regression models, basically the dataset \sQuote{refData} included in PELVIS (or any other dataset with the same variables).}
   \item{updateProgressBar}{Internal option for the R-Shiny application.}
 }

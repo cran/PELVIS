@@ -3,6 +3,8 @@ shinyServer(function(input, output, session) {
 	library(MASS)
 	myenvg = new.env() # environnement priv\'e au package ; contiendra le jeu de donnees (vu comme une variable globale)
 	#source("addMetavars.R")
+	#source("metavar.R")
+	#source("bruzek02.R")
 	#source("indivSexing.R")
 	#source("sexingFromFile.R")
 	#source("tenFoldCV.glm.R")
@@ -110,7 +112,7 @@ shinyServer(function(input, output, session) {
 				return(temp) # on retourne cette table pour la fonction renderTable ci-dessous.
 	})
      	 
-	output$tabResME <- renderTable(tail(dat(), n=5), align="c", rownames=TRUE, striped=TRUE, hover=TRUE, digits=2) # le rendu de la table de résultats
+	output$tabResME <- DT::renderDT(dat()) #, n=5), align="c", rownames=TRUE, striped=TRUE, hover=TRUE, digits=2) # le rendu de la table de résultats
 	
 	# SON BOUTON DE TÉLÉCHARGEMENT :
 	output$button_download_resultsME <- renderUI({  # ce bouton n'est gener\'e que lorsque l'utilisateur a soumis des donnees
@@ -149,7 +151,7 @@ shinyServer(function(input, output, session) {
 	##################################################################################
 	# 2b. REALISER LA DETERMINATION DU SEXE POUR LE FICHIER SOUMIS PAR L'UTILISATEUR :
 	# LA TABLE :
-	output$tabResFF <- renderTable({
+	output$tabResFF <- DT::renderDT({
 		# Définir et initialiser une barre de progression :
 		progressFF <- shiny::Progress$new()
 		progressFF$set(message="Computing results...", value=0)
@@ -167,11 +169,11 @@ shinyServer(function(input, output, session) {
 		if (input$loadData>0 & exists("datUser", envir=myenvg)) { # si un jeu de donnees a bien ete fourni et qu'il est valide !
 			finalResultFF <- sexingFromFile(ref=refData, dat=get("datUser", envir=myenvg), updateProgressBarFF)
 			assign("ResultsFF", finalResultFF, envir=myenvg)
-			return(head(finalResultFF, 10))
+			return(finalResultFF)
 		} else { # sinon on ne retourne rien
 			NULL
 		}
-	}, align="c", rownames=TRUE, striped=TRUE, hover=TRUE, digits=2)
+	})
 	
 	# SON BOUTON DE TÉLÉCHARGEMENT :
 	output$button_download_resultsFF <- renderUI({  # ce bouton n'est gener\'e que lorsque l'utilisateur a soumis des donnees

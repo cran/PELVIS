@@ -11,8 +11,8 @@ An R-Shiny application implementing two methods for sexing the human os coxae, b
 \tabular{ll}{
 Package: \tab PELVIS\cr
 Type: \tab Package\cr
-Version: \tab 1.0.4\cr
-Date: \tab 2018-08-03\cr
+Version: \tab 1.0.5\cr
+Date: \tab 2018-18-12\cr
 License: \tab GPL >=2\cr
 }
 

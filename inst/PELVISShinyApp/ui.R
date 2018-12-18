@@ -76,8 +76,8 @@ shinyUI(fluidPage(theme="kappa.css",
         		
         		wellPanel(
         			h3("Results"),
-        			helpText("Only the latest five rows of results are displayed below. Please download the table to retrieve the complete results."),
-			 	div(tableOutput("tabResME")),
+        			helpText("Please note that posterior probabilities are rounded to the third decimal place."),
+			 	div(DT::DTOutput("tabResME")),
 			 	uiOutput("button_download_resultsME")
         		)
 	 	) # end "verticalLayout"
@@ -108,8 +108,8 @@ shinyUI(fluidPage(theme="kappa.css",
 			),
 			wellPanel(
 				h3("Results"),
-				helpText("Only the first ten rows of results are displayed below. Please download the table to retrieve the complete results."),
-				div(tableOutput("tabResFF")),
+				helpText("Please note that posterior probabilities are rounded to the third decimal place."),
+				div(DT::DTOutput("tabResFF")),
 				uiOutput("button_download_resultsFF")
 			)
 		)
