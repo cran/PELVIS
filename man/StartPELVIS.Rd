@@ -37,7 +37,7 @@ The function returns no value by itself, but the results can be downloaded throu
 \references{
 Bruzek, J. (2002) A method for visual determination of sex, using the human hip bone. \emph{American Journal of Physical Anthropology} \bold{117}, 157--168. doi: 10.1002/ajpa.10012
 
-Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (Submitted to \emph{American Journal of Physical Anthropology}) A probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)
+Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (Submitted to \emph{American Journal of Physical Anthropology}) A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits
 }
 \author{
 Frédéric Santos, <frederic.santos@u-bordeaux.fr>

@@ -1,7 +1,7 @@
 shinyServer(function(input, output, session) {
 
 	library(MASS)
-	myenvg = new.env() # environnement priv\'e au package ; contiendra le jeu de donnees (vu comme une variable globale)
+	myenvg = new.env() # environnement privé au package ; contiendra le jeu de données (vu comme une variable globale)
 	#source("addMetavars.R")
 	#source("metavar.R")
 	#source("bruzek02.R")
@@ -104,7 +104,7 @@ shinyServer(function(input, output, session) {
 				colOk <- colnames(traitsInd)[which(traitsInd[1,]!="NA")] # les colonnes portant des valeurs "non-NA"
 				traitsInd <- data.frame(traitsInd[ , traitsInd[1,]!="NA"])
 				colnames(traitsInd) <- colOk
-				resStatEstimateME <- indivSexing(ref=refData, newInd=traitsInd) # ou traitsInd[1,] ?
+				resStatEstimateME <- indivSexing(ref=refData, newInd=traitsInd)
 				
 				temp <- rbind(temp, c(input$preauriSurf1, input$preauriSurf2, input$preauriSurf3, PaS, input$greatSN1, input$greatSN2, input$greatSN3, GSN, input$compoArch, input$infPelvis1, input$infPelvis2, input$infPelvis3, InP, input$ispubProp, bruzek02(c(PaS, GSN, InP, input$compoArch, input$ispubProp)), resStatEstimateME$PredictedSex, round(1-resStatEstimateME$PostProb,3),round(resStatEstimateME$PostProb,3), resStatEstimateME$VariablesUsed, round(100*resStatEstimateME$cvRate,2), round(100*resStatEstimateME$cvIndet,2))) #... et on y ajoute l'individu dont les valeurs sont actuellement saisies dans l'UI.
 				rownames(temp)[input$calcButton] <- input$indivName # on ajoute le nom de cet individu...
@@ -112,10 +112,10 @@ shinyServer(function(input, output, session) {
 				return(temp) # on retourne cette table pour la fonction renderTable ci-dessous.
 	})
      	 
-	output$tabResME <- DT::renderDT(dat()) #, n=5), align="c", rownames=TRUE, striped=TRUE, hover=TRUE, digits=2) # le rendu de la table de résultats
+	output$tabResME <- DT::renderDT(dat(), options=list(columnDefs=list(list(className='dt-center', targets="_all")))) # le rendu de la table de résultats
 	
 	# SON BOUTON DE TÉLÉCHARGEMENT :
-	output$button_download_resultsME <- renderUI({  # ce bouton n'est gener\'e que lorsque l'utilisateur a soumis des donnees
+	output$button_download_resultsME <- renderUI({  # ce bouton n'est généré que lorsque l'utilisateur a soumis des données
 					if (input$calcButton>0) { 
 						downloadButton("download_resultsME", "Download the complete table [CSV file]")
 					} else { 
@@ -124,7 +124,7 @@ shinyServer(function(input, output, session) {
 	})
 	output$download_resultsME <- downloadHandler(filename="results_SexingOsCoxae.csv", content=function(file) {
 		write.csv(dat(), file)
-	}) # la fonction declenchee par le bouton de telechargement	
+	}) # la fonction déclenchée par le bouton de téléchargement	
 
 
 	###################################################################
@@ -143,7 +143,7 @@ shinyServer(function(input, output, session) {
 			} else { # sinon, le fichier d'entrée est invalide : on affiche un message d'erreur.
 				showModal(modalDialog(title="Error", "Invalid file. Please check the field separator and the spelling of column names.", easyClose = TRUE))
 			}
-		} else { # l'utilisateur avait oubli\'e de choisir un fichier
+		} else { # l'utilisateur avait oublié de choisir un fichier
 			showModal(modalDialog(title = "Error", "Please select a file on your computer.", easyClose = TRUE))
 		}	
 	})
@@ -166,17 +166,17 @@ shinyServer(function(input, output, session) {
 		progressFF$set(value=currentValue, detail=detail)
 }
 		# Retourner le tableau :
-		if (input$loadData>0 & exists("datUser", envir=myenvg)) { # si un jeu de donnees a bien ete fourni et qu'il est valide !
+		if (input$loadData>0 & exists("datUser", envir=myenvg)) { # si un jeu de données a bien ete fourni et qu'il est valide !
 			finalResultFF <- sexingFromFile(ref=refData, dat=get("datUser", envir=myenvg), updateProgressBarFF)
 			assign("ResultsFF", finalResultFF, envir=myenvg)
 			return(finalResultFF)
 		} else { # sinon on ne retourne rien
 			NULL
 		}
-	})
+	}, options=list(columnDefs=list(list(className='dt-center', targets="_all"))))
 	
 	# SON BOUTON DE TÉLÉCHARGEMENT :
-	output$button_download_resultsFF <- renderUI({  # ce bouton n'est gener\'e que lorsque l'utilisateur a soumis des donnees
+	output$button_download_resultsFF <- renderUI({  # ce bouton n'est généré que lorsque l'utilisateur a soumis des données
 					if (input$loadData>0 & exists("datUser", envir=myenvg)) { 
 						downloadButton("download_resultsFF", "Download the complete table [CSV file]")
 					} else { 
@@ -186,6 +186,6 @@ shinyServer(function(input, output, session) {
 	output$download_resultsFF <- downloadHandler(filename="results_SexingOsCoxae.csv", content=function(file) {
 		saveData <- get("ResultsFF", finalResultFF, envir=myenvg)
 		write.csv(saveData, file)
-	}) # la fonction declenchee par le bouton de telechargement
+	}) # la fonction déclenchée par le bouton de téléchargement
 })
 

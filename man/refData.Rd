@@ -5,11 +5,11 @@
 Learning dataset for logistic regression models
 }
 \description{
-This dataset includes 1110 ossa coxa from five population samples. The eleven trichotomic traits are given for each os coaxe (possibly with missing values for incomplete bones), along with the geographical origin and known sex of the individual. When possible, the age and stature of the individual are also given.
+This dataset includes 592 ossa coxa from five population samples. The eleven trichotomic traits are given for each os coaxe (possibly with missing values for incomplete bones), along with the geographical origin and known sex of the individual. When possible, the age and stature of the individual are also given. This dataset is used as a training sample for the logistic regression models implemented in PELVIS.
 }
 \usage{data(refData)}
 \format{
-  A data frame with 1110 observations on the following 17 variables:
+  A data frame with 592 observations on the following 17 variables:
   \describe{
     \item{\code{Id}}{a factor with 592 levels (unique ID of the individual to whom the bone belongs)}
     \item{\code{Orig}}{a factor with 5 levels (geographical origin)}
@@ -32,5 +32,4 @@ This dataset includes 1110 ossa coxa from five population samples. The eleven tr
 }
 \keyword{hip bone, os coxae, ossa coxa, sex estimation}
 \references{
-Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (Submitted to \emph{American Journal of Physical Anthropology}) A probabilistic approach for sex classification using visual traits of the human os coxae following Bruzek (2002)
-}
+Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (Submitted to \emph{American Journal of Physical Anthropology}) A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits}
