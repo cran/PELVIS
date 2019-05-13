@@ -3,14 +3,14 @@
 \title{Internal function used to get the five main characters described by Bruzek (2002) from the eleven visual traits observed on the human os coaxe.}
 \description{Converts a set of three visual traits to its correspoding main character (e.g. PrSu1, PrSu2 and PrSu3 are converted to PrSu).}
 \usage{
-metavar(x, seuil=2)
+metavar(x, threshold=2)
 }
 \note{
 This is an internal function for the R-Shiny application implemented in PELVIS, documented here for testing purposes only.
 }
 \arguments{
   \item{x}{A vector of characters of length 3, having three possible values: \sQuote{f}, \sQuote{i} or \sQuote{m}.}
-  \item{seuil}{For internal purposes only.}
+  \item{threshold}{For internal purposes only: threshold for the majority rule; set to 2 by default since x is supposed to be of length 3 (cf. Bruzek 2002)}
 }
 \value{
 A unique character value among three possible values: \sQuote{F}, \sQuote{0} or \sQuote{M}.

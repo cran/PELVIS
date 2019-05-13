@@ -1,17 +1,18 @@
 bruzek02 <- function(x) {
-# détermination Bruzek02 à partir des scores sur 5 méta-variables finales.
-# x : vecteur de "f", "i", "m" (et éventuellement NA), théoriquement de longueur 5 (même si ce n'est pas obligatoire)
-# output -> produit une détermination finale "f", "i" ou "m" en fonction des déterminations du vecteur d'origine, sur la base de la règle de majorité.
-	
-	x <- x[!is.na(x)] # on commence par retirer les valeurs manquantes
-	nb_f <- sum(x=="F") # nb de déterminations féminines
-	nb_m <- sum(x=="M") # nb de déterminations masculines	
-	
-	if (nb_f > nb_m) {
-		return("F")	
-	} else if (nb_f < nb_m) {
-		return("M")
-	} else { # nb_f == nb_m
-		return("I")
-	} 
+# Produces sex estimates with original Bruzek (2002) method from the observed values on the five main characters (PrSu, GrSN, CArc, IsPu, InfP)
+# x: character vector (with possible values "f", "i", "m" or NA), is supposed to be of length 5.
+# output -> returns a sex estimate ("F", "I" or "M") depending on the input vector, based on a simple majority rule.
+  
+  x <- x[!is.na(x)] # remove missing values
+  nb_f <- sum(x=="F") # counts of "F" in the input vector
+  nb_m <- sum(x=="M") # counts of "M" in the input vector
+  
+  # Return a sex estimate based on a majority rule:
+  if (nb_f > nb_m) {
+    return("F")  
+  } else if (nb_f < nb_m) {
+    return("M")
+  } else { # nb_f == nb_m
+    return("I")
+  } 
 }

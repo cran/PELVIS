@@ -1,9 +1,9 @@
-PELVIS 
+PELVIS
 ======
 
-#### Installation of the R-package PELVIS using *devtools* ####
+## Installation of the R package PELVIS using *devtools*
 
-##### Install prerequisites #####
+#### Install prerequisites
 
 1. Install *devtools* by typing the following command line into the R console:
 
@@ -13,7 +13,7 @@ PELVIS
     * **Windows:** Install latest version of *[Rtools](https://cran.r-project.org/bin/windows/Rtools/)*. During the installation process, make sure to select *"Edit the system path"*.
     * **OSX:** Install *[XCODE](https://developer.apple.com/xcode/)*
 
-##### Install PELVIS #####
+#### Installing PELVIS
 
 Run the following commands in R:
         
@@ -21,15 +21,25 @@ Run the following commands in R:
 	install_git('https://gitlab.com/f.santos/pelvis.git')
 
 
-##### Run PELVIS #####
+## Installation of the R package PEVIS from CRAN
+
+The latest stable version of PELVIS is also available on CRAN, and can be installed by typing the following command line into the R console :
+
+	install.packages("PELVIS", dep=TRUE)
+	
+## Running PELVIS
 
 To start the graphical interface, run the following commands into the R console:
 
 	library(PELVIS)
 	StartPELVIS()
 	
-#### Installation of the R-package PEVIS from CRAN ####
+For most devices, it will be advisable to decrease the zoom level in your web browser.
+	
+## Citing PELVIS
 
-The latest stable version of PELVIS is also available on CRAN, and can be installed by typing the following command line into the R console :
+The users of PELVIS who are willing to cite the package in a scientific article can find citation information by typing:
 
-	install.packages("PELVIS", dep=TRUE)
+	citation("PELVIS")
+
+into the R console, after installing the package.

@@ -1,44 +1,45 @@
-tenFoldCV.glm <- function(dat.glm, mod, seuil=0.95) {
-# dat.glm : les données à utiliser (sans données manquantes, car elles ont été préalablement soumises à na.omit dans une fonction parente)
-# mod : le modèle GLM dont on veut évaluer les perf en CV
-# seuil : le seuil classique, à priori 0.95 par défaut.
-# output -> les perf en 10-fold CV du modèle.
+tenFoldCV.glm <- function(dat.glm, mod, conf_level=0.95) {
+# dat.glm: dataframe on which to perform a 10-fold CV (with no missing values)
+# mod: GLM to evaluate
+# conf_level: 0.95 by default, confidence level needed to produce a sex estimate
 
-	N <- nrow(dat.glm) # le nombre d'individus
-	dat.glm <- dat.glm[sample(1:N, size=N, replace=FALSE) , ] # on réordonne aléatoirement le jeu de données pour introduire du hasard
+  # Compute some useful constants:
+  N <- nrow(dat.glm) # sample size in the dataset
+  dat.glm <- dat.glm[sample(1:N, size=N, replace=FALSE) , ] # reorder the rows to introduce some randomness
 
-	# 1. Mise en place de la structure d'accueil des résultats :
-	MatRes <- matrix(nrow=N, ncol=3)
-	colnames(MatRes) <- c("True_sex", "Proba_10CV", "Predict_sex_10CV")
-	MatRes <- data.frame(MatRes)
-	MatRes[,1] <- as.character(dat.glm$Sex) # on renomme la première colonne des données, par précaution.
-	
-	# 2. Calcul des prédictions en LOOCV (trop chronophage, abandonné... mais pourra être réintégré plus tard si parallélisation efficace) :
-	#for (i in 1:nrow(dat.glm)) { # pour chaque individu...
-	#	app <- dat.glm[-i, ] # on retire l'individu courant du jeu de données,
-	#	modTemp <- glm(mod$call$formula, family=binomial, data=app) # on apprend un modèle sur un jeu de données privé de cet individu,
-	#	MatRes[i,2] <- round(predict(modTemp, newdata=dat.glm[i,], type="response"),3) # et on récupère les prédiction & proba.
-	#	MatRes[i,3] <- ifelse(MatRes[i,2]>=seuil, "M", ifelse(MatRes[i,2]<=1-seuil, "F", "I"))
-	#}
-	
-	# 2. Calcul des prédictions en 10-fold CV :
-	for (k in 1:10) { # pour chacune des 10 itérations ("splits", "folds"),
-		pioch <- (1:N <= k*N/10) & (1:N > (k-1)*N/10) # on pioche 10% des individus qui seront utilisés pour la *validation*
-		app <- dat.glm[!pioch, ] # et on apprend le modèle sur les 90% restants
-		val <- dat.glm[pioch, ]
-		modTemp <- glm(mod$call$formula, family=binomial, data=app)
-		MatRes[pioch, 2] <- predict(modTemp, newdata=val, type="response")
-	}
-	MatRes[ , 3] <- ifelse(MatRes[ , 2]>=seuil, "M", ifelse(MatRes[ ,2]<=1-seuil, "F", "I"))
-	
-	# 3. Calcul des perf synthétiques en 10-fold CV :
-	taux_indet <- nrow(MatRes[MatRes$Predict_sex_10CV=="I", ]) / nrow(MatRes)
-	if (taux_indet<1) { # s'il n'y a pas que des indéterminés (ce qui peut se produire s'il y a une unique variable prédictrice)
-		taux_succes <- nrow(MatRes[(MatRes$Predict_sex_10CV=="F" & MatRes$True_sex=="F") | (MatRes$Predict_sex_10CV=="M" & MatRes$True_sex=="M"), ]) / nrow(MatRes[MatRes$Predict_sex_10CV!="I", ])
-	} else { # il n'y a que des indéterminés
-		taux_succes <- NA
-	}
-	
-	# 4. Retourner les résultats :
-	return(list(ClassifResults=MatRes, IndetRate=taux_indet, SuccessRate=taux_succes))
+  ####################################################
+  # 1. Prepare and initialize a dataframe of results #
+  ####################################################
+  MatRes <- matrix(nrow=N, ncol=3)
+  colnames(MatRes) <- c("True_sex", "Proba_10CV", "Predict_sex_10CV")
+  MatRes <- data.frame(MatRes)
+  MatRes[,1] <- as.character(dat.glm$Sex) 
+
+  ###########################
+  # 2. Perform a 10-fold CV #
+  ###########################
+  for (k in 1:10) { # for each of the ten folds ("splits", "folds"),
+    pioch <- (1:N <= k*N/10) & (1:N > (k-1)*N/10) # draw at random 10% of individuals as a test sample
+    app <- dat.glm[!pioch, ] # and train a GLM on the remaining 90%.
+    val <- dat.glm[pioch, ]
+    modTemp <- glm(mod$call$formula, family=binomial, data=app)
+    MatRes[pioch, 2] <- predict(modTemp, newdata=val, type="response")
+  }
+  MatRes[ , 3] <- ifelse(MatRes[ , 2]>=conf_level, "M", ifelse(MatRes[ ,2]<=1-conf_level, "F", "I"))
+  
+  #####################
+  # 3. Model accuracy #
+  #####################
+  indet_rate <- nrow(MatRes[MatRes$Predict_sex_10CV=="I", ]) / nrow(MatRes)
+  if (indet_rate<1) { 
+    success_rate <- nrow(MatRes[(MatRes$Predict_sex_10CV=="F" & MatRes$True_sex=="F") | (MatRes$Predict_sex_10CV=="M" & MatRes$True_sex=="M"), ]) / nrow(MatRes[MatRes$Predict_sex_10CV!="I", ])
+  } else { # if there is only indeterminate individuals (might happen if one single trait is used as predictor)
+    success_rate <- NA
+  }
+  
+  #########################
+  # 4. Return the results #
+  #########################
+  return(list(ClassifResults=MatRes, IndetRate=indet_rate, SuccessRate=success_rate))
+  
 }

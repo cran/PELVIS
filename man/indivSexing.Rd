@@ -1,7 +1,7 @@
 \name{indivSexing}
 \alias{indivSexing}
-\title{Internal function for sexing one single human os coxae using revised Bruzek's method (2018)}
-\description{Produces a statistical sex estimate from eleven characters observed on the human os coxae, following Bruzek (2018), and using logistic regression models.}
+\title{Internal function for sexing one single human os coxae using revised Bruzek's method (2019)}
+\description{Produces a statistical sex estimate from eleven characters observed on the human os coxae, following Bruzek (2019), and using logistic regression models.}
 \usage{
 indivSexing(ref, newInd)
 }
@@ -18,20 +18,20 @@ A list with the following components:
 	\item{PostProb}{Posterior probability for the individual to be a male.}
 	\item{BestModel}{Best logistic regression model for the studied os coxae according to the BIC criterion.}
 	\item{VariablesUsed}{Names of the variables (including part or all of the nonmissing traits for the studied os coaxe) used in this best model.}
-	\item{cvRate}{Success rate in cross-validation. Cf. Santos et al. (2018) for more details about cross-validation here.}
+	\item{cvRate}{Success rate in cross-validation. Cf. Santos et al. (2019) for more details about cross-validation here.}
 	\item{cvIndet}{Rate of individuals remaining indeterminate using the best logistic regression model.}
 }
 \references{
-Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (Submitted to \emph{American Journal of Physical Anthropology}) A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits
+Santos, F., Guyomarc'h, P., Rmoutilova, R. and Bruzek, J. (2019) A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits. \emph{American Journal of Physical Anthropology}. doi: 10.1002/ajpa.23855
 }
 \author{
 Frédéric Santos, <frederic.santos@u-bordeaux.fr>
 }
 \examples{
-data(refData)
+data(refDataBruzek02)
 # Pick the first individual of the reference dataset with its 11 traits, as an example:
-individual <- refData[1, -c(1:6)]
+individual <- refDataBruzek02[1, -c(1:6)]
 individual
 # Produce a sex estimate for this individual:
-indivSexing(ref=refData, newInd=individual)
+indivSexing(ref=refDataBruzek02, newInd=individual)
 }
