@@ -1,5 +1,7 @@
 PELVIS
 ======
+[![pipeline status](https://gitlab.com/f.santos/pelvis/badges/master/pipeline.svg)](https://gitlab.com/f.santos/pelvis/commits/master)
+[![coverage report](https://gitlab.com/f.santos/pelvis/badges/master/coverage.svg)](https://gitlab.com/f.santos/pelvis/commits/master)
 
 ## Installation of the R package PELVIS using *devtools*
 
@@ -25,20 +27,20 @@ Run the following commands in R:
 
 The latest stable version of PELVIS is also available on CRAN, and can be installed by typing the following command line into the R console :
 
-	install.packages("PELVIS", dep=TRUE)
+	install.packages("PELVIS", dep = TRUE)
 	
 ## Running PELVIS
 
 To start the graphical interface, run the following commands into the R console:
 
 	library(PELVIS)
-	StartPELVIS()
+	start_pelvis()
 	
 For most devices, it will be advisable to decrease the zoom level in your web browser.
 	
 ## Citing PELVIS
 
-The users of PELVIS who are willing to cite the package in a scientific article can find citation information by typing:
+To cite the package in a scientific article, type:
 
 	citation("PELVIS")
 

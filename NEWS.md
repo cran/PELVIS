@@ -1,8 +1,29 @@
+# PELVIS 2.0.0 (Release date: 2019-07-22)
+
+## Changes in dependencies
+* `PELVIS` now depend on R 3.5.0 or greater.
+* `covr` and `testthat` are now suggested.
+
+## Major changes
+* A new option to handle different confidence levels for the sex estimates has been added.
+* Although still advisable, variable selection in logistic regression models is now optional. A choice between AIC and BIC can also be made.
+* Some functions have been renamed or deprecated.
+
+## Minor changes
+* More examples added in documentation files
+* All comments in R functions have been translated into English
+* Small refinements in user interface for the R-shiny application
+* Updated citation information
+
+## Reliability
+* Unit tests with `testthat`, and continuous integration with GitLab, are now used to improve the reliability of future updates.
+
 # PELVIS 1.2.1 (Release date: 2019-05-13)
 
 ## Minor changes
 
 * Updated documentation files
+* A third dataset has been included in the package (`rightBonesDataBruzek`)
 
 # PELVIS 1.2.0 (Release date: 2019-04-23)
 
