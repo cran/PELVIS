@@ -2,7 +2,7 @@ server <- shinyServer(function(input, output, session) {
 
     myenvg <- new.env() # private environment for PELVIS; will contain the dataset loaded through the UI
     data(refDataBruzek02, package = "PELVIS", envir = myenvg) # load the learning dataset
-    refDataBruzek02 <- get("refDataBruzek02", envir = myenvg) # avoids a NOTE in R CMD check (no visible binding...)
+    refDataBruzek02 <- get("refDataBruzek02", envir = myenvg)
     
 ###########################
 ### 1. TAB "MANUAL EDITING"
@@ -174,6 +174,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$loadData, {
         if (! is.null(input$file$name)) { # is there really a file?
             datUser <- read.table(input$file$datapath, header = TRUE,
+                                  stringsAsFactors = TRUE,
                                   sep = input$fieldSep, na.strings = input$charNA)
             ## Handling rownames:
             if (input$rowNames) { # are there row names?
@@ -193,7 +194,7 @@ server <- shinyServer(function(input, output, session) {
                 rownames(datUser) <- 1:nrow(datUser) # just add an individual number (useful for the progress bar)
             }
             ## Is the dataframe valid?
-            if (valid_data(datUser)) { 
+            if (valid_data(datUser)) {
                 assign("datUser", datUser, envir = myenvg) # store in the private env
             } else {
                 showModal(modalDialog(title = "Error",

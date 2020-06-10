@@ -11,5 +11,5 @@ bibentry(bibtype = "Article",
          journal = "American Journal of Physical Anthropology",
          doi = "10.1002/ajpa.23855",
          header = "Please cite PELVIS in publications using:",
-         textVersion = "Santos, F., Guyomarc'h, P., Rmoutilova, R., & Bruzek, J. (2019). A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits. American Journal of Physical Anthropology. doi: 10.1002/ajpa.23855"
+         textVersion = "Santos, F., Guyomarc'h, P., Rmoutilova, R., & Bruzek, J. (2019). A method of sexing the human os coxae based on logistic regressions and Bruzek's nonmetric traits. American Journal of Physical Anthropology, 169(3), 435-447. doi: 10.1002/ajpa.23855"
 )

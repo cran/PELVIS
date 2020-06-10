@@ -1,3 +1,9 @@
+# PELVIS 2.0.1 (Release date: 2020-04-27)
+
+## Minor changes
+* UI: Fixed typo in `CArc` levels
+* The argument `stringsAsFactors = TRUE` is now passed to `read.table()`, for compatibility with R 4.0.0.
+
 # PELVIS 2.0.0 (Release date: 2019-07-22)
 
 ## Changes in dependencies

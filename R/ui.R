@@ -35,7 +35,7 @@ ui <- shinyUI(fluidPage(theme="style/kappa.css",
     
     titlePanel(img(src = "style/banner_PELVIS.png", height = "40px"),
                windowTitle = "PELVIS"),
-
+    
     ## Divide the window into two tabs:
     tabsetPanel(
 
@@ -116,7 +116,7 @@ ui <- shinyUI(fluidPage(theme="style/kappa.css",
                                                  label = "Relation between outline of sciatic notch and outline of auricular surface",
                                                  choices = c("Could not be observed" = "NA",
                                                              "F, Double curve" = "F",
-                                                             "0, Intermediate form" =" 0",
+                                                             "0, Intermediate form" = "0",
                                                              "M, Single curve" = "M"),
                                                  selected = "NA")                
                                     ),
