@@ -1,3 +1,8 @@
+# PELVIS 2.0.2 (Release date: 2020-06-25)
+
+## Bug fix
+* Fix a bug where the shiny app could crash and display an unexpected error message on Windows computers only.
+
 # PELVIS 2.0.1 (Release date: 2020-04-27)
 
 ## Minor changes

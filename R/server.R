@@ -24,7 +24,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$helpPreauri, {
         showModal(modalDialog(
             title = "Preauricular surface",
-            img(src = 'style/preauricularSurface.png', align = "left"),
+            img(src = '/style/preauricularSurface.png', align = "left"),
             helpText("as, auricular surface; sn, sciaticnotch; t, piriform tuubercle; pg, preauricular groove; f, female condition; m, male condition."),
             helpText("F: Specific female shape (f-f-f), showing the deep depression, with closed circumference (true preauricular groove), associated with lack of tubercle."),
             helpText("M: Typical male form (m-m-m), showing the relief as smooth or very slight, with open border, associated with presence of tubercle."),
@@ -38,7 +38,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$helpGSN, {
         showModal(modalDialog(
             title = "Greater sciatic notch",
-            img(src = 'style/greaterSN.png', align = "left"),
+            img(src = '/style/greaterSN.png', align = "left"),
             helpText("as, auricular surface; sn, sciatic notch; A, top of piriform tubercle, in the case of its absence; A', top of posterior inferior iliac spine; AB and A'B, sciatic notch breadth; CD, sciatic notch depth; AC and A'C, posterior chord of sciatic notch breadth; CB, anterior chord of sciatic notch breadth; AP (A'P), perpendicular at point A (A') to the line formed by the sciatic notch breadth."),
             helpText("F: Extreme female form (f-f-f), showing posterior chord segment AC (or A'C) longer (or close to equality) than the anterior chord CB, symmetry of notch contour associated with no crossing of the line A-P (A'-P) with the contour of the posterior chord."),
             helpText("M: Extreme male form (m-m-m), showing the posterior chord segment AC (A'C) shorter than the anterior chord CB, asymmetry of the outline chords associated with the crossing the line A-P (A'P) with the contour of the posterior chord."),
@@ -52,7 +52,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$helpCompositeArch, {
         showModal(modalDialog(
             title = "Composite arch",
-            img(src = 'style/compositeArch.png', align = "left"),
+            img(src = '/style/compositeArch.png', align = "left"),
             helpText("Outline of anterior sciatic notch chord (2), relative to outline of anterior segment of auricular surface (1)."),
             helpText("s, auricular surface; sn, sciatic notch."),
             helpText("M: Absence of composite arch (single curve, 1 = 2)."),
@@ -65,7 +65,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$helpInfPelvis, {
         showModal(modalDialog(
             title = "Inferior pelvis",
-            img(src = 'style/inferiorPelvis.png', align = "left"),
+            img(src = '/style/inferiorPelvis.png', align = "left"),
             helpText("pus, pubic symphysis; itu, ischial tuberosity; cp, phallic ridge. Horizontal lines limit the middle part of the ischiopubic ramus. Broken line represents major axis of this structure."),
             helpText("F: Typical female form (f-f-f), showing external eversion of ischiopubic ramus and absence of the phallic ridge, associated with gracility of the bones."),
             helpText("M: Typical male form (m-m-m), showing direct course of medial part of ischiopubic ramus and presence of phallic ridge, associated with robustness of the bones."),
@@ -79,7 +79,7 @@ server <- shinyServer(function(input, output, session) {
     observeEvent(input$helpIschiopubicProp, {
         showModal(modalDialog(
             title = "Ischiopubic proportions",
-            img(src = 'style/ischiopubicProp.png', align = "left"),
+            img(src = '/style/ischiopubicProp.png', align = "left"),
             helpText("Proportions of length of pubis (pu) and ischium (is)."),
             helpText("M: Male morphology (pu < is)."),
             helpText("F: Female morphology (pu > is)."),

@@ -1,29 +1,29 @@
 PELVIS
 ======
-[![pipeline status](https://gitlab.com/f.santos/pelvis/badges/master/pipeline.svg)](https://gitlab.com/f.santos/pelvis/commits/master)
-[![coverage report](https://gitlab.com/f.santos/pelvis/badges/master/coverage.svg)](https://gitlab.com/f.santos/pelvis/commits/master)
+[![pipeline status](https://gitlab.com/f-santos/pelvis/badges/master/pipeline.svg)](https://gitlab.com/f-santos/pelvis/commits/master)
+[![coverage report](https://gitlab.com/f-santos/pelvis/badges/master/coverage.svg)](https://gitlab.com/f-santos/pelvis/commits/master)
 
-## Installation of the R package PELVIS using *devtools*
+# Installation of the R package PELVIS from GitLab
 
-#### Install prerequisites
+## Install prerequisites
 
-1. Install *devtools* by typing the following command line into the R console:
+1. Install the R package `remotes` by typing the following command line into the R console:
 ```r
-install.packages("devtools")
+install.packages("remotes")
 ```
 
 2. Install build environment
     * **Windows:** Install latest version of *[Rtools](https://cran.r-project.org/bin/windows/Rtools/)*. During the installation process, make sure to select *"Edit the system path"*.
     * **OSX:** Install *[XCODE](https://developer.apple.com/xcode/)*
 
-#### Installing PELVIS
+## Installing PELVIS
 
 Run the following command in R:
 ```r        
-devtools::install_git('https://gitlab.com/f.santos/pelvis.git')
+remotes::install_git('https://gitlab.com/f-santos/pelvis.git')
 ```
 
-## Installation of the R package PEVIS from CRAN
+# Installation of the R package PEVIS from CRAN
 
 The latest stable version of PELVIS is also available on CRAN, and can be installed by typing the following command line into the R console :
 
@@ -31,7 +31,7 @@ The latest stable version of PELVIS is also available on CRAN, and can be instal
 install.packages("PELVIS", dep = TRUE)
 ```
 	
-## Running PELVIS
+# Running PELVIS
 
 To start the graphical interface, run the following commands into the R console:
 ```r
@@ -41,7 +41,7 @@ start_pelvis()
 	
 For most devices, it will be advisable to decrease the zoom level in your web browser.
 	
-## Citing PELVIS
+# Citing PELVIS
 
 To cite the package in a scientific article, type:
 ```r

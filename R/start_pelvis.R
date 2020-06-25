@@ -2,7 +2,7 @@ start_pelvis <- function() {
     ## Define the UI and server files for the app:
     app <- shiny::shinyApp(ui = ui, server = server)
     ## Define a folder that contains a CSS sheet and images:
-    shiny::addResourcePath(prefix = "style", directoryPath = system.file("www", package = "PELVIS"))
+    shiny::addResourcePath(prefix = "style", directoryPath = system.file("deco", package = "PELVIS"))
     ## Run the app:
     shiny::runApp(app)
 }

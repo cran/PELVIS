@@ -1,4 +1,4 @@
-ui <- shinyUI(fluidPage(theme="style/kappa.css",
+ui <- shinyUI(fluidPage(theme = "/style/kappa.css",
 
     tags$style(HTML("
     .btn-help.btn {
@@ -33,7 +33,7 @@ ui <- shinyUI(fluidPage(theme="style/kappa.css",
     "
     )),
     
-    titlePanel(img(src = "style/banner_PELVIS.png", height = "40px"),
+    titlePanel(img(src = "/style/banner_PELVIS.png", height = "40px"),
                windowTitle = "PELVIS"),
     
     ## Divide the window into two tabs:
