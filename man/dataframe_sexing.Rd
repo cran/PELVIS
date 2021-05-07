@@ -14,13 +14,13 @@ strategy = c("BIC", "AIC", "None"), trace = 1)
   This is an internal function for the R-Shiny application implemented in PELVIS.
 }
 \arguments{
-  \item{data}{A test dataset submitted by the user throught the graphical
-    user interface. The predictive factors (i.e. the eleven trichotomic
-    traits) should have the same headers and levels as in the reference
-    dataset \sQuote{refData} included in PELVIS. An example of valid data
-    file can be found on Zenodo:
-    \url{https://doi.org/10.5281/zenodo.2586897} (its field separator is
-    the semicolon ";").}
+  \item{data}{A test dataset submitted by the user throught the
+    graphical user interface. The predictive factors (i.e. the eleven
+    trichotomic traits) should have the same headers and levels as in
+    the reference dataset \sQuote{refData} included in PELVIS. An
+    example of valid data file can be found on Zenodo:
+    \doi{10.5281/zenodo.2586897} (its field separator is the semicolon
+    ";").}
   \item{ref}{A learning dataset for logistic
     regression models, basically the dataset \sQuote{refDataBruzek02}
     included in PELVIS (or any other dataset with the same variables).}

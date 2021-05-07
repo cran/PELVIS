@@ -36,7 +36,7 @@ StartPELVIS()
     (i.e. the eleven trichotomic traits) should have the same headers
     and levels as in the reference dataset \sQuote{refData} included in
     PELVIS. An example of valid data file can be found on Zenodo:
-    \url{https://doi.org/10.5281/zenodo.2586897} (its field separator is
+    \doi{10.5281/zenodo.2586897} (its field separator is
     the semicolon ";").
   }
   In both tabs, two sex estimates are given: the visual sex estimate

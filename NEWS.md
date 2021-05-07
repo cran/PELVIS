@@ -1,3 +1,8 @@
+# PELVIS 2.0.3 (Release date: 2021-05-20)
+
+## Bug fix
+* Additional fix for the bug addressed in v2.0.2.
+
 # PELVIS 2.0.2 (Release date: 2020-06-25)
 
 ## Bug fix

@@ -1,7 +1,7 @@
-657409f907439cc67dab93be948c2b75 *DESCRIPTION
+1b22361b0d1b1b5af875ba521b26befa *DESCRIPTION
 09a74fe32bbf2dc1db48065d30e979f7 *LICENSE
-b316b305702cece16d509f9c5dab7172 *NAMESPACE
-3283e3f4596d7fcba00c713e5172dfdb *NEWS.md
+a895369b3818265f5a98eaf14f334653 *NAMESPACE
+7efec08cba59fab94018541f13daf35b *NEWS.md
 76d472785e7bcc34294ccebe4f788b4c *R/bruzek02.R
 7ed4a3bfc0d6d3d01021a457672a2bfb *R/dataframe_sexing.R
 4d4948db916b9f91520bcf712a74359e *R/indiv_sexing.R
@@ -12,6 +12,7 @@ b316b305702cece16d509f9c5dab7172 *NAMESPACE
 b20728c3e9b65aada47f74bf2e9b75ea *R/ui.R
 ecb15d9c1990da54775b690a2c6528f1 *R/valid_data.R
 63c5f7cd564786b281b2c2a891b86719 *README.md
+5332a209a5555937719d77ed02447f03 *build/partial.rdb
 d4d2cc059219d5a40a16d4eab844c674 *data/CTscanDataBruzek.rda
 1f190a480da21a17b265e73a8be56206 *data/refDataBruzek02.rda
 5f7561437fbd83d508598474c7bf9c97 *data/rightBonesDataBruzek.rda
@@ -28,11 +29,11 @@ b5b1567abfb9fb9c891464d7ec138ebe *inst/CITATION
 7f031637565e5f276f750e69eef87912 *man/PELVIS-package.Rd
 02beb43675022fa21c6814f151064132 *man/add_metavars.Rd
 9b026c776b00a968fc41d3a4337d80d0 *man/bruzek02.Rd
-c68e70c19ddbc400b327e06acca6c399 *man/dataframe_sexing.Rd
+3539a01f68e54ef2d21101466880f56c *man/dataframe_sexing.Rd
 c471867260e1b02d1976d6595074e0e0 *man/indiv_sexing.Rd
 f69f0ef54fce9cd160e8c50f8600db5f *man/refDataBruzek02.Rd
 0ebed8e27741c23950f966fadcbc9b98 *man/rightBonesDataBruzek.Rd
-a8c0b3155eb4415dc10efc389df02a9b *man/start_pelvis.Rd
+a708571cd66b16bbd9d5b977a63b281a *man/start_pelvis.Rd
 94f4fa06d1ce3f18ff9f46501a2bffe2 *tests/testthat.R
 bd20f0556626f437db666ba52b6ac19a *tests/testthat/test-add_metavars.R
 1cac27981cbe50829d929e77fa26a6a3 *tests/testthat/test-bruzek02.R
