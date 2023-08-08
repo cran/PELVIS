@@ -1,7 +1,7 @@
-1b22361b0d1b1b5af875ba521b26befa *DESCRIPTION
-09a74fe32bbf2dc1db48065d30e979f7 *LICENSE
+3001a3e818acd845735f6fec3d59a71b *DESCRIPTION
+422abb3bef25fafb669f2d0ef4730982 *LICENSE
 a895369b3818265f5a98eaf14f334653 *NAMESPACE
-7efec08cba59fab94018541f13daf35b *NEWS.md
+d3304a6b6b0ded5dadcebb05fc4d732c *NEWS.md
 76d472785e7bcc34294ccebe4f788b4c *R/bruzek02.R
 7ed4a3bfc0d6d3d01021a457672a2bfb *R/dataframe_sexing.R
 4d4948db916b9f91520bcf712a74359e *R/indiv_sexing.R
@@ -11,8 +11,8 @@ a895369b3818265f5a98eaf14f334653 *NAMESPACE
 10357652aced45335af96351da71a938 *R/tenFoldCV.glm.R
 b20728c3e9b65aada47f74bf2e9b75ea *R/ui.R
 ecb15d9c1990da54775b690a2c6528f1 *R/valid_data.R
-63c5f7cd564786b281b2c2a891b86719 *README.md
-5332a209a5555937719d77ed02447f03 *build/partial.rdb
+4ea9a2b510b962afbc7c716c11b602a6 *README.md
+7080893e02c49cd296d4424b9be55069 *build/partial.rdb
 d4d2cc059219d5a40a16d4eab844c674 *data/CTscanDataBruzek.rda
 1f190a480da21a17b265e73a8be56206 *data/refDataBruzek02.rda
 5f7561437fbd83d508598474c7bf9c97 *data/rightBonesDataBruzek.rda
@@ -26,7 +26,7 @@ b5b1567abfb9fb9c891464d7ec138ebe *inst/CITATION
 1345a646f89c4e6df88c4f3f0a97645c *inst/deco/logo_PELVIS.png
 2a3dc09b67963b56bb379ae42e9c9e97 *inst/deco/preauricularSurface.png
 32c3defc24bb910fa45a7022707cdf7e *man/CTscanDataBruzek.Rd
-7f031637565e5f276f750e69eef87912 *man/PELVIS-package.Rd
+018388ee9a4c75fa7f5ffb62a99ec703 *man/PELVIS-package.Rd
 02beb43675022fa21c6814f151064132 *man/add_metavars.Rd
 9b026c776b00a968fc41d3a4337d80d0 *man/bruzek02.Rd
 3539a01f68e54ef2d21101466880f56c *man/dataframe_sexing.Rd

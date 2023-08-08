@@ -1,4 +1,10 @@
-# PELVIS 2.0.3 (Release date: 2021-05-20)
+# PELVIS 2.0.4 (Release date: 2023-07-27)
+
+## Minor changes
+* Fix incorrect characters in LICENSE file.
+* Fix obsolete URLs in README file.
+
+# PELVIS 2.0.3 (Release date: 2021-05-07)
 
 ## Bug fix
 * Additional fix for the bug addressed in v2.0.2.

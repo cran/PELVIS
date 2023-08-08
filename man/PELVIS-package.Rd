@@ -14,8 +14,6 @@
   \tabular{ll}{
     Package: \tab PELVIS\cr
     Type: \tab Package\cr
-    Version: \tab 2.0.2\cr
-    Date: \tab 2020-06-25\cr
     License: \tab CeCILL-2.1\cr
   }
 }
